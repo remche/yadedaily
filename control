@@ -22,7 +22,7 @@ Build-Depends:
  libloki-dev,
  libmetis-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
  libopenblas-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
- libqglviewer-dev | libqglviewer-qt4-dev,
+ libqglviewer-dev-qt4,
  libsuitesparse-dev [amd64 i386 ia64 kfreebsd-amd64 kfreebsd-i386 powerpc],
  libvtk6-dev,
  libxi-dev,
@@ -36,7 +36,6 @@ Build-Depends:
  python-minieigen [!precise],
  python-numpy,
  python-qt4,
- python-support,
  python-tk,
  python-xlib,
  zlib1g-dev
