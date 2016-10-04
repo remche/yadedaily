@@ -35,7 +35,7 @@ Build-Depends:
  python-matplotlib,
  python-minieigen [!precise],
  python-numpy,
- python-qt5,
+ python-pyqt5,
  python-tk,
  python-xlib,
  zlib1g-dev
@@ -113,7 +113,7 @@ Depends:
  python-imaging,
  python-matplotlib,
  python-minieigen [!precise],
- python-qt5,
+ python-pyqt5,
  python-tk,
  python-xlib,
  ${misc:Depends},
