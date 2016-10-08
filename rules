@@ -17,6 +17,7 @@ export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export YADE_PREFIX := $(tmpInstall)/usr
 export CCACHE_DIR=/data/ccache
 export CCACHE_LOGFILE=/data/ccache/ccache.log
+export CCACHE_MAXSIZE=5G
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
