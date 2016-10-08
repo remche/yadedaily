@@ -15,6 +15,7 @@ export PATH := /usr/lib/ccache/$(PATH)
 export LD_LIBRARY_PATH :=  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade/qt:$(LD_LIBRARY_PATH); 
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export YADE_PREFIX := $(tmpInstall)/usr
+export CCACHE_DIR=/data/ccache
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
