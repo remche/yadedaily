@@ -16,6 +16,7 @@ export LD_LIBRARY_PATH :=  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export YADE_PREFIX := $(tmpInstall)/usr
 export CCACHE_DIR=/data/ccache
+export CCACHE_LOGFILE=/data/ccache/ccache.log
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
