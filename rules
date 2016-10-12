@@ -6,7 +6,6 @@ tmpDirMatplotLib = $(CURDIR)/debian/matplotlib
 %:
 	dh $@ --buildsystem=cmake --builddirectory=$(BUILDDIR) --with python2 --parallel
 
-export DH_VERBOSE=1
 export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
@@ -15,14 +14,10 @@ export HOME := $(tmpDirMatplotLib)
 export LD_LIBRARY_PATH :=  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yadedaily/py/yade/qt:$(LD_LIBRARY_PATH); 
 export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 export YADE_PREFIX := $(tmpInstall)/usr
-export CCACHE_DIR=/data/ccache
-export CCACHE_LOGFILE=/data/ccache/ccache.log
-export CCACHE_NOHASHDIR=1
 
 extra_flags += \
 -DruntimePREFIX="/usr" \
 -DCMAKE_INSTALL_PREFIX="/usr" \
--DCMAKE_BUILD_TYPE="RELEASE" \
 -DSUFFIX="daily" \
 -DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
 -DYADE_VERSION=VERSIONYADEREPLACE \
@@ -36,9 +31,6 @@ override_dh_auto_configure:
 	#Output an information about available memory and CPU
 	-cat /proc/meminfo
 	-cat /proc/cpuinfo
-
-override_dh_strip:
-	dh_strip --dbg-package=libyadedaily_VERSIONYADEREPLACE-dbg
 
 override_dh_auto_build:
 	dh_auto_build -- -j2
