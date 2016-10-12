@@ -35,6 +35,9 @@ override_dh_auto_configure:
 	-cat /proc/meminfo
 	-cat /proc/cpuinfo
 
+override_dh_strip:
+	dh_strip --dbg-package=libyadedaily_VERSIONYADEREPLACE-dbg
+
 override_dh_auto_build:
 	dh_auto_build -- -j2
 
